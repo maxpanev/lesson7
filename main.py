@@ -43,17 +43,24 @@ def animal_sound(animals):
 
 
 class Employee():
-    def __init__(self, name, position):
+    def __init__(self, name):
         self.name = name
-        self.position = position
 
 
 class ZooKeeper(Employee):
+    def __init__(self, name):
+        super().__init__(name)
+        self.position = "Зоокипер"
+
     def feed_animal(self, animal):
         print(f"{self.name} кормит животное: {animal.name}")
 
 
 class Veterinarian(Employee):
+    def __init__(self, name):
+        super().__init__(name)
+        self.position = "Ветеринар"
+
     def heal_animal(self, animal):
         print(f"{self.name} лечит животное: {animal.name}")
 
@@ -91,10 +98,8 @@ reptile = Reptile("Ранго", 7)
 
 animal_sound([bird, mammal, reptile])
 
-
-
-zookeeper = ZooKeeper("Иван", "Зоокипер")
-veterinarian = Veterinarian("Мария", "Ветеринар")
+zookeeper = ZooKeeper("Иван")
+veterinarian = Veterinarian("Мария")
 
 zoo.add_animal(bird)
 zoo.add_animal(mammal)
